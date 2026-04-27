@@ -1,0 +1,274 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 560px;
+}
+
+h1 {
+    font-size: 22px;
+    color: #1a1a2e;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+/* 상태 섹션 */
+.status-section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    margin-right: 4px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.status-dot.connected    { background: #4caf50; box-shadow: 0 0 6px rgba(76,175,80,0.6); }
+.status-dot.disconnected { background: #f44336; }
+
+.status-text { font-size: 13px; font-weight: 600; }
+.status-text.connected    { color: #4caf50; }
+.status-text.disconnected { color: #f44336; }
+
+/* 엔진 상태 */
+.engine-state {
+    font-size: 13px;
+    color: #333;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.field-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field-tag {
+    font-size: 12px;
+    color: #666;
+    background: #eef2ff;
+    border-radius: 4px;
+    padding: 4px 10px;
+    display: inline-block;
+}
+
+/* 입력 영역 */
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    min-width: 90px;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 9px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.input-row input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.placeholder-text {
+    font-size: 13px;
+    color: #aaa;
+    text-align: center;
+    padding: 16px 0;
+}
+
+/* 버튼 */
+button {
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-connect {
+    background: #2196f3;
+    color: white;
+    padding: 8px 18px;
+    font-size: 13px;
+}
+
+.btn-connect:hover:not(:disabled) { background: #1976d2; }
+
+.btn-sm {
+    background: #f0f0f0;
+    color: #555;
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+.btn-sm:hover:not(:disabled) { background: #e0e0e0; }
+
+.btn-send {
+    background: #4caf50;
+    color: white;
+    padding: 11px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.btn-send:hover:not(:disabled) { background: #45a049; }
+
+
+/* 동적 필드 추가 버튼 */
+.btn-add-field {
+    width: 100%;
+    background: transparent;
+    border: 2px dashed #d0d0d0;
+    color: #999;
+    padding: 7px;
+    font-size: 13px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+}
+
+.btn-add-field:hover:not(:disabled) {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.btn-field-remove {
+    background: #f5f5f5;
+    color: #aaa;
+    border: 1px solid #e0e0e0;
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: all 0.15s;
+}
+
+.btn-field-remove:hover { background: #ffe0e0; color: #f44336; border-color: #f44336; }
+
+/* 버튼 생성기 */
+.btn-generate {
+    background: #667eea;
+    color: white;
+    padding: 9px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.btn-generate:hover:not(:disabled) { background: #5a6fd6; }
+
+.btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    min-height: 36px;
+}
+
+.btn-number {
+    background: #4caf50;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+}
+
+.btn-number:hover { background: #45a049; transform: scale(0.97); }
+.btn-number:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* 로그 */
+.log {
+    background: #1e1e1e;
+    border-radius: 6px;
+    padding: 12px;
+    height: 180px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.log-entry { margin-bottom: 3px; word-break: break-all; }
+.log-time  { color: #888; margin-right: 6px; }
+.log-info    { color: #87ceeb; }
+.log-success { color: #4caf50; }
+.log-error   { color: #ff6b6b; }

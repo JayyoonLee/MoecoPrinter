@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoTix Printer Controller</title>
+    <link rel="stylesheet" href="printer_ui.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MoTix Printer Controller</h1>
+
+        <!-- 프린터 연결 상태 -->
+        <div class="status-section">
+            <span class="status-label">Printer Status:</span>
+            <div class="status-indicator">
+                <div class="status-dot disconnected" id="statusDot"></div>
+                <span class="status-text disconnected" id="statusText">Disconnected</span>
+            </div>
+        </div>
+
+        <!-- 현재 상태 -->
+        <div class="card">
+            <div class="card-header">
+                <span>Printer Status</span>
+                <button class="btn-sm" id="refreshBtn" disabled>Refresh</button>
+            </div>
+            <div id="engineState" class="engine-state">-</div>
+            <div id="fieldList" class="field-list"></div>
+        </div>
+
+        <!-- 메시지 선택 -->
+        <div class="card">
+            <div class="card-header">
+                <span>Message</span>
+            </div>
+            <div class="input-row">
+                <span class="input-label">Name</span>
+                <input type="text" id="msgInput" list="msgDatalist"
+                       placeholder="e.g. Msg1" autocomplete="off" disabled>
+                <datalist id="msgDatalist"></datalist>
+            </div>
+        </div>
+
+        <!-- Send -->
+        <div class="card">
+            <div class="card-header">
+                <span id="sendCardLabel">Send</span>
+            </div>
+            <div id="fieldRows" class="input-area"></div>
+            <button class="btn-add-field" id="addFieldBtn" disabled>+ 필드 추가</button>
+            <button class="btn-send" id="sendBtn" disabled>Send</button>
+        </div>
+
+        <!-- 시퀀스 버튼 생성기 -->
+        <div class="card">
+            <div class="card-header">
+                <span>Sequence Generator</span>
+            </div>
+            <div class="input-area">
+                <div class="input-row">
+                    <span class="input-label">Count</span>
+                    <input type="number" id="seqCount" placeholder="e.g. 3" min="1">
+                </div>
+                <div class="input-row">
+                    <span class="input-label" id="seqValueLabel">Dyn.Text1</span>
+                    <input type="text" id="seqValue" placeholder="e.g. 2000">
+                </div>
+            </div>
+            <button class="btn-generate" id="seqGenBtn" disabled>Generate</button>
+            <div id="seqBtnContainer" class="btn-container"></div>
+        </div>
+
+        <!-- 버튼 생성기 -->
+        <div class="card">
+            <div class="card-header">
+                <span>Button Generator</span>
+            </div>
+            <div class="input-row">
+                <input type="text" id="genInput" placeholder="숫자 입력 후 Generate">
+                <button class="btn-generate" id="genBtn" disabled>Generate</button>
+            </div>
+            <div id="btnContainer" class="btn-container"></div>
+        </div>
+
+        <!-- 로그 -->
+        <div class="card">
+            <div class="card-header">
+                <span>Log</span>
+                <button class="btn-sm" id="clearLogBtn">Clear</button>
+            </div>
+            <div id="logEl" class="log"></div>
+        </div>
+    </div>
+
+    <script src="printer_ui.js"></script>
+</body>
+</html>
