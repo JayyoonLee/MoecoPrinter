@@ -1,8 +1,12 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import requests
 import json
+import sys
 
-PRINTER_IP  = "172.30.1.15"
+if len(sys.argv) < 2:
+    print("Usage: python bridge.py <printer_ip>")
+    sys.exit(1)
+PRINTER_IP  = sys.argv[1]
 ENGINE_BASE = f"http://{PRINTER_IP}:9966"  # /engine/*
 DATA_BASE   = f"http://{PRINTER_IP}:9911"  # /data/*
 PORT = 8765

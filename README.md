@@ -37,15 +37,27 @@ bridge.py (localhost:8765)
 
 ### 1. bridge.py 시작
 
+프린터 IP를 인자로 전달하여 실행합니다.
+
 ```bash
-python bridge.py
+python bridge.py <프린터_IP>
+```
+
+예시:
+```bash
+python bridge.py 172.30.1.15
+```
+
+IP를 입력하지 않으면 실행이 중단됩니다:
+```
+Usage: python bridge.py <printer_ip>
 ```
 
 출력 확인:
 ```
 Proxy running: http://localhost:8765
-  /engine/* → http://172.30.1.15:9966
-  /data/*   → http://172.30.1.15:9911
+  /engine/* → http://<프린터_IP>:9966
+  /data/*   → http://<프린터_IP>:9911
 ```
 
 ### 2. 브라우저에서 열기
