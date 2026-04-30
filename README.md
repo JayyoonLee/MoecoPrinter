@@ -190,3 +190,11 @@ Proxy running: http://localhost:8765
 - Message 카드에서 메시지명을 직접 변경한 경우 **Refresh를 눌러야** `currentFields`가 새 메시지 기준으로 갱신됩니다.
 - `bridge.py`가 실행 중이어야 UI가 동작합니다.
 - 브라우저는 Chrome / Edge 권장입니다.
+
+---
+
+## 프린터 장비 초기 설정
+
+Wi-Fi 연결, IP 확인, 다이나믹텍스트 설정 등 **프린터 장비 자체의 초기 세팅 방법**은 아래 문서를 참고하세요.
+
+👉 [DEVICE_SETUP.md](DEVICE_SETUP.md)
