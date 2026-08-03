@@ -88,11 +88,10 @@ Proxy running: http://localhost:8765
 
 ### 2.1 새로 만들기 메뉴 진입
 
-<img src="images/home_screen_expand.png" width="50%">
-
 1. 홈화면 우측의 **화살표(확장) 버튼**을 클릭합니다.
+<img src="images/home_screen_expand.png" width="50%">
 2. 펼쳐진 메뉴에서 **New(새로 만들기)** 를 클릭합니다.
-
+<img src="images/home_screen_new.png" width="50%">
 ### 2.2 Text(문장) 개체 추가
 
 <img src="images/new_dynamic_text.jpg" width="50%">
