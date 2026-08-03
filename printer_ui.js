@@ -21,6 +21,7 @@ const seqCount        = document.getElementById('seqCount');
 const seqValue        = document.getElementById('seqValue');
 const seqGenBtn       = document.getElementById('seqGenBtn');
 const seqBtnContainer = document.getElementById('seqBtnContainer');
+const resetBtn        = document.getElementById('resetBtn');
 
 const MSG_STORAGE_KEY = 'moeco_msg_history';
 
@@ -81,6 +82,7 @@ async function getStatus() {
         msgInput.disabled = false;
         genBtn.disabled = false;
         seqGenBtn.disabled = false;
+        resetBtn.disabled = false;
         engineState.textContent = `state: ${data.state}  |  message: ${data.data_name}  |  output: ${data.output}`;
         currentFields = data.source_info || [];
         fieldList.innerHTML = currentFields.map(f =>
@@ -259,6 +261,25 @@ sendBtn.addEventListener('click', async () => {
 
 refreshBtn.addEventListener('click', getStatus);
 clearLogBtn.addEventListener('click', () => { logEl.innerHTML = ''; });
+
+resetBtn.addEventListener('click', async () => {
+    const msgName = msgInput.value.trim();
+    if (!msgName) { log('Reset: 메시지 이름을 먼저 입력하세요.', 'error'); return; }
+    try {
+        const stop = await api('DELETE', '/engine/printjob', { id: 0 });
+        log(`reset stop: ${JSON.stringify(stop)}`, 'info');
+        await sleep(500);
+        const start = await api('POST', '/engine/printjob', {
+            hash: 11112,
+            attribute: { print_data_name: msgName }
+        });
+        log(`reset start [${msgName}]: ${JSON.stringify(start)}`, 'info');
+        await sleep(1000);
+        await getStatus();
+    } catch (e) {
+        log(`Reset error: ${e.message}`, 'error');
+    }
+});
 
 // 초기화
 renderDatalist();
