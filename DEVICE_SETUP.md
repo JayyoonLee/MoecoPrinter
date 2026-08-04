@@ -88,32 +88,45 @@ Proxy running: http://localhost:8765
 
 ### 2.1 새로 만들기 메뉴 진입
 
+<img src="images/home_screen_expand.jpg" width="50%">
+
 1. 홈화면 우측의 **화살표(확장) 버튼**을 클릭합니다.
-<img src="images/home_screen_expand.png" width="50%">
 2. 펼쳐진 메뉴에서 **New(새로 만들기)** 를 클릭합니다.
-<img src="images/home_screen_new.PNG" width="50%">
+
 ### 2.2 Text(문장) 개체 추가
 
-<img src="images/new_dynamic_text.jpg" width="50%">
+<img src="images/newtextmenu_defaultTEXT.png" width="60%">
 
-3. 새로 만들기 화면 좌측의 **Text(문장)** 아이콘을 클릭합니다.
+3. 새로 만들기 화면 좌측의 **Text** 아이콘(빨간 박스)을 클릭합니다.
 
-   > 우측의 **다이나믹텍스트** 아이콘은 외부 데이터를 받아 출력하는 동적 텍스트용입니다. 자세한 내용은 [3. 다이나믹텍스트 출력하기](#3-다이나믹텍스트-출력하기)를 참고하세요.
+   > 우측의 **Dyn.Text** 아이콘은 외부 데이터를 받아 출력하는 동적 텍스트용입니다. 자세한 내용은 [3. 다이나믹텍스트 출력하기](#3-다이나믹텍스트-출력하기)를 참고하세요.
 
 ### 2.3 텍스트 내용 입력
 
-4. 캔버스 중앙에 생성된 **Text(문장)** 개체를 클릭하여 선택합니다.
-5. 우측(또는 하단) 속성 패널에서 **Text Content(텍스트 내용)** 항목 옆의 텍스트 입력란을 클릭합니다.
+<img src="images/edittextmenu.png" width="60%">
+
+4. 캔버스에 생성된 **① Default Text** 개체를 클릭하여 선택합니다.
+5. 하단 속성 패널의 **② Text** 탭이 선택된 상태에서, **③ Text Content(텍스트 내용)** 옆의 입력란을 클릭합니다.
 6. 원하는 문구로 텍스트를 수정합니다.
-7. 수정이 끝나면 **Back(뒤로가기)** 버튼을 눌러 편집 화면으로 돌아갑니다.
+
+<img src="images/edittextmenu_save.png" width="60%">
+
+7. 수정이 끝나면 화면 키보드 우측 하단의 **체크(✓) 표시**(빨간 박스)를 눌러 입력을 저장합니다.
 
 ### 2.4 이름 지정 및 저장
 
-8. 상단 또는 저장 메뉴에서 **Name(이름)** 을 지정합니다.
+<img src="images/savetextmenu.png" width="60%">
 
-   > 이 이름이 이후 웹 UI의 **Message** 카드에 입력하는 메시지명(예: `Msg1`, `Msg2`)이 됩니다. 알아보기 쉬운 이름으로 저장해 두면 좋습니다.
+8. **① Back(뒤로가기)** 버튼을 클릭합니다. → **Save as** 팝업이 나타납니다.
+9. 팝업의 **② Name** 입력란에 저장할 이름을 지정합니다. (예: `Msg1`)
 
-9. 저장을 완료하면 홈화면에서 해당 메시지를 불러와 바로 인쇄할 수 있습니다.
+   > 이 이름이 이후 웹 UI의 **Message** 카드에 입력하는 메시지명이 됩니다. 알아보기 쉬운 이름으로 저장해 두면 좋습니다.
+
+10. **③ Save** 버튼을 클릭해 저장을 완료합니다.
+
+    > `Don't Save`는 저장하지 않고 나가기, `Cancel`은 편집 화면으로 되돌아가기입니다.
+
+11. 저장을 완료하면 홈화면에서 해당 메시지를 불러와 바로 인쇄할 수 있습니다.
 
 ---
 
@@ -123,10 +136,10 @@ Proxy running: http://localhost:8765
 
 ### 3.1 다이나믹텍스트 개체 추가
 
-<img src="images/new_dynamic_text.jpg" width="50%">
+<img src="images/newtextmenu_dyanamicTEXT.png" width="60%">
 
 1. [2.1 새로 만들기 메뉴 진입](#21-새로-만들기-메뉴-진입)과 동일하게 홈화면 우측 확장 버튼 → **New(새로 만들기)** 로 진입합니다.
-2. 화면 우측의 **다이나믹텍스트(다이나…)** 아이콘을 클릭합니다.
+2. 화면 우측의 **Dyn.Text** 아이콘(빨간 박스)을 클릭합니다.
 
 <img src="images/dynamic_text_add.jpg" width="50%">
 
@@ -145,16 +158,16 @@ Proxy running: http://localhost:8765
 
 ### 3.3 다이나믹텍스트 세부 설정
 
-<img src="images/dynamic_text_settings.jpg" width="50%">
+<img src="images/make_dynamicTEXT.png" width="60%">
 
 6. 배치한 다이나믹텍스트 개체를 다시 클릭하여 설정 화면으로 들어갑니다.
 7. 아래와 같이 설정합니다.
 
    | 항목 | 값 |
    |------|------|
-   | 프로토콜 | Http |
-   | 서버 | 활성화 (토글 **ON**) |
-   | 텍스트 분할 | 비활성화 |
+   | Protocol | Http |
+   | Server | 활성화 (토글 **ON**) |
+   | Text Split | Disable |
 
 ### 3.4 기본값(초기 문구) 설정
 
